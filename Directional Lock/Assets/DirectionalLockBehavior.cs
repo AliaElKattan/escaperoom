@@ -47,10 +47,14 @@ public class DirectionalLockBehavior : MonoBehaviour {
 				Debug.Log (attempt);
 			}
 		}
-		if (key == attempt) {
-			ledManager.changeColor = true;
+		if (attempt.Length == 6) { // only 6 inputs are allowed
+			if (key == attempt) { // if key and attempt strings are matching
+				ledManager.changeColor = true; // change color from red to green
+			}
+			else {
+				attempt = ""; // else reset attempt string
+			}
 		}
-	
 	}
 
 	// initialize audio source
