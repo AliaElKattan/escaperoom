@@ -1,6 +1,6 @@
-#Escape Reality Technical Specifications
+# Escape Reality Technical Specifications
 
-##Members
+## Members
 Peter Si, Manas Pant, Ali Alrahma, Alia ElKattan
 
 ## Project Overview
