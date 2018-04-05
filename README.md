@@ -92,3 +92,4 @@ Describe a specific moment. Try to be as precise and thorough as possible. Where
 ## CONCLUSION
 (half page)
 Remind the reader why your project is worth funding/presenting/experiencing.
+Based on all that we are offering to our users, I think it is very clear why we are offering a unique experience to our users. We are offering a virtual world where you can experience the thrill of playing the escape room game wherever you want, whenever you want. Whats even better is the fact that our environment is different everytime you enter and play. This way you dont even have to deal with the limitations of the actual physical space. VR escape room is also going to be relatively inexpensive compared to what the physical one is. 
