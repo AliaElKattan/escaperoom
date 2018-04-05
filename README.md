@@ -1,9 +1,17 @@
-Name: Escape Reality (or something)
-Project Proposal
+# Project Proposal: Escape Reality
+
+## Members:
+
 
 Peter Si, Manas Pant, Ali Alrahma, Alia ElKattan
 
+## Technical Specifications
+
+
 Technical Specifications: https://docs.google.com/document/d/1Vkdtixer5RnyEavP39ILG7tlGhIH39tUodhAv_zMEfc/edit?usp=sharing
+
+## Description
+
 
 Are you done with escape rooms where one dictators clamps on all the clues through the entire way? 
 Join us at Escape Reality, where cooperation is the only way to success. 
