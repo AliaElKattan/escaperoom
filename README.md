@@ -40,11 +40,10 @@ future of escape rooms are. Join us at Escape Reality.
 
 #### Background
 
-It's just another day at the super secret chemistry lab. Just another day of hacking through millions of chemicals with your lab mates, mixing and concocting deadly toxins that might just one day destroy the world. Hidden away in a normal office building up in the middle of New York City, the lab presents a cold and sleek, scientific vibe in contrast to the beautiful natural view outside. Out of nowhere, you hear a loud explosion at the corner of the lab. You see that the lab manager has mixed the wrong chemiclas and have just blown themself up while concocting a deadly neuro toxin virus, dying instantly. What's worse is that the lab manger is the one who holds all the passwords and keys to the lab's super secret layouts. As the barricade comes down from all sides of the lab as a preventative measure to isolate the deadly contagious virus within the room, you realize that you have but a few minutes to concoct an antidote to survive. The good news is that while you're limited to sections of the lab due to an electronic bomb strapped to your ankle for lab management purposes, there are people in all different sections of the lab that can work together to get out of this bind and escape this reality.
+It's just another day at the super secret chemistry lab. You know, like a day of hacking through millions of chemicals with your lab mates, mixing and concocting deadly toxins that might just one day destroy the world. Hidden away in a normal office building up in the middle of New York City, the lab presents a cold and sleek, scientific vibe in contrast to the beautiful natural view outside. Out of nowhere, you hear a loud explosion at the corner of the lab. You see that the lab manager has mixed the wrong chemiclas and have just blown themself up while concocting a deadly neuro toxin virus, dying instantly. What's worse is that the lab manger is the one who holds all the passwords and keys to the lab's super secret layouts. As the barricade comes down from all sides of the lab as a preventative measure to isolate the deadly contagious virus within the room, you realize that you have but a few minutes to concoct an antidote to survive. The good news is that while you're limited to sections of the lab due to an electronic bomb strapped to your ankle for lab management purposes, there are people in all different sections of the lab that can work together to get out of this bind and escape this reality.
 
 
 #### Core Interactions
-
 
 There are two main interaction that users are faced with. One with the environment, and one with each other. In all senses, the users are placed under limitations by the environment. They are restricted by limited time (health bar UI that continually decreases due to toxin gas), they are restricted by physical space (the bomb that sets off if you step out of your given work zone), and they are restricted by physical abilities (cannot see something while looking at something else, the dark room limits vision). However, to overcome all of this, they have each other. This is why the latter interaction, the one with each other, becomes so meaningful. The users are but present with one challenge of creating the antidote, for which they must backtrack the interactions that they must complete. This clear goal and obscure means to acheive this goal is the driving force behind people to become more active. The results of this interaction will allow people to become true friends, as it is a well known rule that people who survive dangerous neurotoxin gas together must become friends. 
 
@@ -71,6 +70,11 @@ What does the audience member hear? Group them in three overall categories: soun
 #### Interface of the Project
 Describe the interface of your project.
 How does the audience member interact with your project? How does the interface of your project allows her to understand what is going on and how to manipulate the state of the world? You should include sketches/wireframes of what the different interface elements should look like (e.g. potential titles, buttons, sliders, knobs). You should at least include one interface for joining your world, from the lobby room.
+
+
+There exist several interface mechanisms for users to understand that some objects are meant to be interacted with.
+First and foremost, the users are provided with basic objects that one must interact with, for instance the goggles and the books for 
+
 
 ## EXPERIENCE OVERVIEW
 (one page)
