@@ -8,7 +8,7 @@ Peter Si, Manas Pant, Ali Alrahma, Alia ElKattan
 ## Technical Specifications
 
 
-Technical Specifications: https://docs.google.com/document/d/1Vkdtixer5RnyEavP39ILG7tlGhIH39tUodhAv_zMEfc/edit?usp=sharing
+[Technical Specifications](https://github.com/AliaElKattan/escaperoom/blob/master/Technical%20Overview.md)
 
 ## Project Overview
 
