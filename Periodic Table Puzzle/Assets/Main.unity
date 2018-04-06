@@ -679,7 +679,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   spreadCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -691,7 +691,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -703,7 +703,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
 --- !u!1 &470316538
 GameObject:
   m_ObjectHideFlags: 0
@@ -957,6 +957,7 @@ GameObject:
   - component: {fileID: 575285891}
   - component: {fileID: 575285890}
   - component: {fileID: 575285889}
+  - component: {fileID: 575285893}
   m_Layer: 0
   m_Name: Base
   m_TagString: Untagged
@@ -1041,6 +1042,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &575285893
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 575285888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94444a62069ad4687899ea991a88b6b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseColor: {r: 0.28676468, g: 0.28676468, b: 0.28676468, a: 0}
 --- !u!1 &615620185
 GameObject:
   m_ObjectHideFlags: 0
@@ -3123,7 +3136,7 @@ Light:
   serializedVersion: 8
   m_Type: 2
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1
+  m_Intensity: 3
   m_Range: 2.0142887
   m_SpotAngle: 30
   m_CookieSize: 10
