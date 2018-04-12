@@ -18,34 +18,48 @@ public class MyNetwork : Photon.PunBehaviour {
 
 	}
 
-	void OnGUI(){
-		//this is a simple way to display the connection state on the screen itself, instead of in the Console
-		GUILayout.Label (PhotonNetwork.connectionStateDetailed.ToString ());
-	}
+    string room_name = "Atrium";
+    RoomInfo[] all_rooms;
+    string networkedObject_name = "Being";
 
-	//by default, we join a lobby. once that's done, we want to join our room right away
-	public override void OnJoinedLobby () {
-		// once we've joined the lobby (make sure you check the Auto-Join Lobby setting in Window>Photon Networking Settings)
-		// we tell Photon to join a random room inside our application
-		// essentially, that means that, if there is a room available, we will join it
-		// if that fails, Photon will call OnPhotonRandomJoinFailed() (line 43)
-		PhotonNetwork.JoinRandomRoom ();
+    void OnGUI()
+    {   //This is called to easily display GUI elements
+        if (!PhotonNetwork.connected)
+        {   //if the player isn't currently connected to the Photon Cloud
+            GUILayout.Label(PhotonNetwork.connectionStateDetailed.ToString()); //display log messages
+        }
+        else if (PhotonNetwork.room == null)
+        { //else, if you're connected and not yet in a room
+            if (GUI.Button(new Rect(100, 100, 250, 100), "Create a Room")){ //display a clickable button to create a room
+                PhotonNetwork.CreateRoom(room_name, new RoomOptions()
+                {
+                    MaxPlayers = 2,
+                    PublishUserId = true,
+                    IsVisible = true,
+                    PlayerTtl = 0,
+                    EmptyRoomTtl = 0
+                }, null);
+            }
+        }
 
-	}
+        if (all_rooms != null)
+        { //if we have some rooms to display
+            for (int i = 0; i < all_rooms.Length; i++)
+            {
+                if (GUI.Button(new Rect(100, 250 + (110 * i), 250, 100), "Join " + all_rooms[i].name)) //create buttons for each available room
+                    PhotonNetwork.JoinRoom(all_rooms[i].name); //join the room that the user clicked on!
+            }
+        }
+    }
 
-	// once we've joined our room, we want to instantiate an object for our player to control
-	public override void OnJoinedRoom ()
-	{
-		// here, we use PhotonNetwork.Instantiate instead of GameObject.Instantiate to make sure that the GameObject we Instantiate
-		// will be kept track of by Photon in order to update its information in MyNetworkCommunication.cs
-		PhotonNetwork.Instantiate ("Being", new Vector3(0, 2, 0), Quaternion.identity, 0);
+    void OnReceivedRoomListUpdate()
+    { //this function is automatically called when you get new rooms (e.g. when a room is created or removed
+        all_rooms = PhotonNetwork.GetRoomList();
+    }
 
-		// in order for this prefab to be instantiated, it should be located in Assets/Resources folder
-	}
-
-	public override void OnPhotonRandomJoinFailed (object[] codeAndMsg)
-	{
-		// if no room is available, then we create a new one (which means that at least one room will be available for future users to join)
-		PhotonNetwork.CreateRoom ("AlternateRealities", new RoomOptions(){MaxPlayers = 8}, null);
-	}
+    void OnJoinedRoom()
+    { //this is automatically called when you join a room
+        Debug.Log("Joined new room!");
+                PhotonNetwork.Instantiate(networkedObject_name, Vector3.zero, Quaternion.identity, 0); //this is where you want to create your avatar
+    }
 }
