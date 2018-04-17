@@ -81,7 +81,7 @@ public class NetworkManager : MonoBehaviour {
 
 		Debug.Log ("Current number of players is: " + PhotonNetwork.countOfPlayers);
 		//Waiting for rig to come into the network and connect the player
-		StartCoroutine (WaitForRig ());
+
 
         //Place the rig at a spawn point
         Vector3 spawnLocation;
@@ -106,8 +106,9 @@ public class NetworkManager : MonoBehaviour {
 		//playerprefab is a camera rig for HTC Vive
 //		GameObject.Instantiate(navmesh,spawnLocation,Quaternion.identity);
 //		GameObject.Instantiate(pointer,spawnLocation,Quaternion.identity);
-		GameObject.Instantiate (playerprefab, spawnLocation, Quaternion.identity);
 
+		GameObject.Instantiate (playerprefab, spawnLocation, Quaternion.identity);
+		StartCoroutine (WaitForRig ());
 	}
 
 	//function to free up spawn points on disconnect
