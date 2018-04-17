@@ -11,6 +11,7 @@ public class InputManager : Photon.MonoBehaviour {
 	// Getting a reference to the controller Interface
 	private SteamVR_Controller.Device Controller;
 	public GameObject spherePrefab;
+	public GameObject go;
 
 	void Start(){
 	}
@@ -34,7 +35,7 @@ public class InputManager : Photon.MonoBehaviour {
 		// Getting the Trigger press
 		if (Controller.GetHairTriggerDown())
 		{
-			GameObject go = GameObject.Find ("Sphere(Clone)");
+			
 
             if (go == null) {
                 go = GameObject.Find("Cube");
@@ -50,7 +51,6 @@ public class InputManager : Photon.MonoBehaviour {
 		// Getting the Trigger Release
 		if (Controller.GetHairTriggerUp())
 		{
-			GameObject go = GameObject.Find ("Sphere(Clone)");
 
             if (go == null) {
                 go = GameObject.Find("Cube");

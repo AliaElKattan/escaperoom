@@ -348,7 +348,7 @@ public interface IPunCallbacks
     ///
     /// Example: void OnCustomAuthenticationResponse(Dictionary&lt;string, object&gt; data) { ... }
     /// </remarks>
-    /// <see cref="https://doc.photonengine.com/en-us/pun/current/connection-and-authentication/custom-authentication"/>
+    /// <see cref="https://doc.photonengine.com/en/realtime/current/reference/custom-authentication"/>
     void OnCustomAuthenticationResponse(Dictionary<string, object> data);
 
     /// <summary>
@@ -846,7 +846,7 @@ namespace Photon
         ///
         /// Example: void OnCustomAuthenticationResponse(Dictionary&lt;string, object&gt; data) { ... }
         /// </remarks>
-        /// <see cref="https://doc.photonengine.com/en-us/pun/current/connection-and-authentication/custom-authentication"/>
+        /// <see cref="https://doc.photonengine.com/en/realtime/current/reference/custom-authentication"/>
         public virtual void OnCustomAuthenticationResponse(Dictionary<string, object> data)
         {
         }
@@ -1295,7 +1295,7 @@ public class PhotonStream
 }
 
 
-#if UNITY_5_0 || !UNITY_5 && !UNITY_5_3_OR_NEWER
+#if UNITY_5_0 || !UNITY_5 && !UNITY_2017
 /// <summary>Empty implementation of the upcoming HelpURL of Unity 5.1. This one is only for compatibility of attributes.</summary>
 /// <remarks>http://feedback.unity3d.com/suggestions/override-component-documentation-slash-help-link</remarks>
 public class HelpURL : Attribute
@@ -1341,12 +1341,6 @@ namespace UnityEditor.SceneManagement
 
 namespace UnityEngine.SceneManagement
 {
-	public enum LoadSceneMode
-	{
-		Single,
-		Additive
-	}
-
     /// <summary>Minimal implementation of the SceneManager for older Unity, up to v5.2.</summary>
     public class SceneManager
     {
@@ -1359,25 +1353,6 @@ namespace UnityEngine.SceneManagement
         {
             Application.LoadLevel(buildIndex);
         }
-
-		public static AsyncOperation LoadSceneAsync(string name,LoadSceneMode mode =  LoadSceneMode.Single)
-		{
-			if (mode == UnityEngine.SceneManagement.LoadSceneMode.Single) {
-				return Application.LoadLevelAsync (name);
-			} else {
-				return Application.LoadLevelAdditiveAsync(name);
-			}
-		}
-
-		public static AsyncOperation LoadSceneAsync(int buildIndex,LoadSceneMode mode =  LoadSceneMode.Single)
-		{
-			if (mode == UnityEngine.SceneManagement.LoadSceneMode.Single) {
-				return Application.LoadLevelAsync (buildIndex);
-			} else {
-				return Application.LoadLevelAdditiveAsync(buildIndex);
-			}
-		}
-
     }
 }
 

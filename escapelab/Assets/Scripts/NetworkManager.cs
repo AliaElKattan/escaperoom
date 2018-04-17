@@ -7,7 +7,7 @@ using UnityEngine;
 public class NetworkManager : MonoBehaviour {
 
 	//Name of room (change it to whatever you'd like to have users see on the GUI screen)
-	private const string roomName = "Escape Lab";
+	private const string roomName = "VRlab";
 	private RoomInfo[] roomsList;
 	//private byte numPlayers = 8;
 
@@ -17,6 +17,9 @@ public class NetworkManager : MonoBehaviour {
 	public GameObject capsulehand;
 	public GameObject spawnPoint1;
 	public GameObject spawnPoint2;
+
+	public GameObject pointer;
+	public GameObject navmesh;
 
 	//Array to hold the spawn points in the scene and an array to see which spawn points have been taken
 	public Transform[] spawnPoints;
@@ -101,6 +104,8 @@ public class NetworkManager : MonoBehaviour {
 		Debug.Log ("Creating new player and spawn position is " + spawnLocation);
 
 		//playerprefab is a camera rig for HTC Vive
+//		GameObject.Instantiate(navmesh,spawnLocation,Quaternion.identity);
+//		GameObject.Instantiate(pointer,spawnLocation,Quaternion.identity);
 		GameObject.Instantiate (playerprefab, spawnLocation, Quaternion.identity);
 
 	}
@@ -131,14 +136,16 @@ public class NetworkManager : MonoBehaviour {
        
         //Find left controller
 		GameObject controllerLeft = GameObject.Find ("Controller (left)/Model");
-		Debug.Log (controllerLeft);
-		GameObject capsuleHandLeft = PhotonNetwork.Instantiate(capsulehand.name, controllerLeft.transform.position, Quaternion.identity, 0);
+		//Debug.Log (controllerLeft);
+		GameObject capsuleHandLeft = PhotonNetwork.Instantiate(capsulehand.name, controllerLeft.transform.position+ new Vector3(0f,0f,0f), transform.localRotation, 0);
+		//capsuleHandLeft.transform.Rotate(0f, 90f, -280f);
 		capsuleHandLeft.transform.SetParent (controllerLeft.transform);
 
 		//Now for right controller
 
 		GameObject controllerRight = GameObject.Find("Controller (right)/Model");
-		GameObject capsuleHandRight = PhotonNetwork.Instantiate(capsulehand.name, controllerRight.transform.position, Quaternion.identity, 0);
+		GameObject capsuleHandRight = PhotonNetwork.Instantiate(capsulehand.name, controllerRight.transform.position+ new Vector3(0f,0f,0f), transform.localRotation, 0);
+		//capsuleHandRight.transform.Rotate(-90f, 0f, 0f);
 		capsuleHandRight.transform.SetParent (controllerRight.transform);
 
 	}

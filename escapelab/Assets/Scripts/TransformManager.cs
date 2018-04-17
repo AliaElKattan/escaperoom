@@ -9,8 +9,19 @@ public class TransformManager : Photon.MonoBehaviour {
 
 	PhotonView photonView;
 
-	void Start(){
+    private Vector3 syncStartPosition; // = transform.position;//Vector3.zero;
+    private Vector3 syncEndPosition; // = transform.position; //Vector3.zero;
+	private Quaternion syncStartRotation;
+	private Quaternion syncEndRotation;
+
+
+    void Start(){
 		photonView = PhotonView.Get (this);
+        syncStartPosition = transform.position; // = transform.position;//Vector3.zero;
+        syncEndPosition = transform.position; // = transform.position; //Vector3.zero;
+
+		syncStartRotation = transform.rotation; // = transform.position;//Vector3.zero;
+		syncEndRotation = transform.rotation; // = transform.position; //Vector3.zero;
 	}
 
 	// Update is called once per frame
@@ -24,8 +35,6 @@ public class TransformManager : Photon.MonoBehaviour {
 	private float lastSynchronizationTime = 0f;
 	private float syncDelay = 0f;
 	private float syncTime = 0f;
-	private Vector3 syncStartPosition = Vector3.zero;
-	private Vector3 syncEndPosition = Vector3.zero;
 
 	//Here if we are writing to the stream we send position and velocity
 	//otherwise we are reading the position and the velocity from the stream to get the update information
@@ -34,13 +43,22 @@ public class TransformManager : Photon.MonoBehaviour {
 		Rigidbody rb = GetComponent<Rigidbody> ();
 		if (stream.isWriting)
 		{
+			
 			stream.SendNext(rb.position);
 			stream.SendNext(rb.velocity);
+			stream.SendNext(rb.rotation);
+			stream.SendNext (rb.angularVelocity);
 		}
 		else
 		{
 			Vector3 syncPosition = (Vector3)stream.ReceiveNext();
 			Vector3 syncVelocity = (Vector3)stream.ReceiveNext();
+			Quaternion syncRotation = (Quaternion)stream.ReceiveNext ();
+
+
+			// New stuff from the internet
+			rb.angularVelocity = (Vector3)stream.ReceiveNext ();
+
 
 			syncTime = 0f;
 			syncDelay = Time.time - lastSynchronizationTime;
@@ -48,6 +66,11 @@ public class TransformManager : Photon.MonoBehaviour {
 
 			syncEndPosition = syncPosition + syncVelocity * syncDelay;
 			syncStartPosition = rb.position;
+
+			//Trying with Rotation as well
+			syncEndRotation = syncRotation; // + angularVelocity * syncDelay;
+			syncStartRotation = rb.rotation;
+
 		}
 	}
 
@@ -56,6 +79,7 @@ public class TransformManager : Photon.MonoBehaviour {
 		Rigidbody rb = GetComponent<Rigidbody> ();
 		syncTime += Time.deltaTime;
 		rb.position = Vector3.Lerp(syncStartPosition, syncEndPosition, syncTime / syncDelay);
+		rb.rotation = Quaternion.Lerp(syncStartRotation, syncEndRotation, syncTime / syncDelay);
 	}
 
 	public void StartColorChange(Vector3 color){
@@ -74,8 +98,26 @@ public class TransformManager : Photon.MonoBehaviour {
 			photonView.RPC("ChangeColorTo", PhotonTargets.OthersBuffered, color);
 	}
 
-	//Move the object
-	[PunRPC] void MoveTo(Vector3 direction)
+    //Change the color to more transparent
+    [PunRPC] public void MakeTransparent() {
+        Color myColor = GetComponent<Renderer>().material.color;
+        myColor.a = 0.3f;
+        GetComponent<Renderer>().material.color = myColor;
+        if (photonView.isMine)
+            photonView.RPC("MakeTransparent", PhotonTargets.OthersBuffered, photonView.viewID);
+    }
+
+    //Change the color to no transparency 
+    [PunRPC] public void MakeVisible() {
+        Color myColor = GetComponent<Renderer>().material.color;
+        myColor.a = 1f;
+        GetComponent<Renderer>().material.color = myColor;
+        if (photonView.isMine)
+            photonView.RPC("MakeVisible", PhotonTargets.OthersBuffered, photonView.viewID);
+    }
+
+    //Move the object
+    [PunRPC] void MoveTo(Vector3 direction)
 	{
 		GetComponent<Transform>().position = direction;
 		if (photonView.isMine)
@@ -85,6 +127,7 @@ public class TransformManager : Photon.MonoBehaviour {
 	//set a new parent
 	[PunRPC] public void SetNewParent(Transform tr){
 		transform.SetParent (tr);
+		transform.position = new Vector3 (tr.position.x, tr.position.y, tr.position.z);
 		if (photonView.isMine)
 			photonView.RPC("SetNewParent", PhotonTargets.OthersBuffered,tr);
 	}

@@ -4,6 +4,10 @@
 // </copyright>
 // --------------------------------------------------------------------------------------------------------------------
 
+#if UNITY_5 && (!UNITY_5_0 && !UNITY_5_1 && !UNITY_5_2 && !UNITY_5_3) || UNITY_2017
+#define UNITY_MIN_5_4
+#endif
+
 using System;
 using System.Collections;
 using System.Diagnostics;
@@ -15,11 +19,6 @@ using SupportClassPun = ExitGames.Client.Photon.SupportClass;
 
 #if UNITY_5_5_OR_NEWER
 using UnityEngine.Profiling;
-#endif
-
-
-#if UNITY_WEBGL
-#pragma warning disable 0649
 #endif
 
 /// <summary>
@@ -36,7 +35,7 @@ internal class PhotonHandler : MonoBehaviour
     private int nextSendTickCount = 0;
 
     private int nextSendTickCountOnSerialize = 0;
-	
+
     private static bool sendThreadShouldRun;
 
     private static Stopwatch timerToStopConnectionInBackground;
@@ -62,7 +61,7 @@ internal class PhotonHandler : MonoBehaviour
     }
 
 
-	#if UNITY_5_4_OR_NEWER
+    #if UNITY_MIN_5_4
 
     protected void Start()
     {
