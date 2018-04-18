@@ -13,9 +13,8 @@ public class InputManager : Photon.MonoBehaviour {
     public LayerMask puzzleButtonLayer;
 	public GameObject spherePrefab;
 	public GameObject go;
-    public float RaycastHitDistance = 2.0f;
+    public float RaycastHitDistance = 4.0f;
     bool isPointingAtPuzzle = false;
-    bool isHandlingPuzzle = false;
     private GameObject puzzleObject;
 
     void Raycasting() {
@@ -26,14 +25,21 @@ public class InputManager : Photon.MonoBehaviour {
 
         if (Physics.Raycast(transform.position, fwd, out hit, RaycastHitDistance, puzzleButtonLayer)) {
 
+			//get the puzzle object that we're raycasting on
+			puzzleObject = hit.collider.gameObject;
+
+			if (!puzzleObject.GetPhotonView ().isMine) {
+
+				puzzleObject.GetComponent<PhotonView> ().RequestOwnership ();
+
+			}
+
             isPointingAtPuzzle = true;
-           
 
         }
         else {
 
             isPointingAtPuzzle = false;
-            isHandlingPuzzle = false;
 
         }
 
@@ -58,60 +64,32 @@ public class InputManager : Photon.MonoBehaviour {
 
 
         Raycasting();
-
-
-
         Controller = SteamVR_Controller.Input((int)trackedObj.index);
-		
-		// Getting the Touchpad Axis
-		if (Controller.GetAxis() != Vector2.zero)
+
+
+		// trigger pressed while interacting with a puzzle element. this will signify a button press (either in direction or number pad)
+		if (Controller.GetHairTriggerDown() && isPointingAtPuzzle ) 
 		{
-			Debug.Log(gameObject.name + Controller.GetAxis());
+			
+			if (puzzleObject.GetComponentsInParent<KeypadController> ()) {
+			//this is keypad lock.
+				puzzleObject.GetComponentInParent<KeypadController>().hasNewInput = true;
+				puzzleObject.GetComponentInParent<KeypadController> ().touchedButton = puzzleObject;
+
+			
+			} else if (puzzleObject.GetComponentsInParent<DirectionalLockBehavior> ()) {
+
+				Debug.Log ("Not yet implemented");
+			
+			
+			}
+
+
 		}
-
-		// Getting the Trigger press
-		if (Controller.GetHairTriggerDown() ) //&& is) 
-		{
-
-            if (go == null) {
-                go = GameObject.Find("Cube");
-            }
-
-
-            //This line is the one that changes the value of photonView.isMine on the specified GameObject
-            go.GetComponent<PhotonView> ().RequestOwnership ();
-			go.GetComponent<TransformManager> ().SetNewParent (this.transform);
-
-		}
-
-		// Getting the Trigger Release
-		if (Controller.GetHairTriggerUp())
-		{
-
-            if (go == null) {
-                go = GameObject.Find("Cube");
-            }
-
-            // Make sure we have ownership before we do anything the the objects
-            go.GetComponent<PhotonView> ().RequestOwnership ();
-			go.GetComponent<TransformManager>().DetachParent ();
-		}
+			
 
 
 
-
-		// Getting the Grip Press
-		if (Controller.GetPressDown(SteamVR_Controller.ButtonMask.Grip))
-		{
-			Debug.Log(gameObject.name + " Grip Press");
-
-			PhotonNetwork.Instantiate(spherePrefab.name, new Vector3(0,3,0), Quaternion.identity, 0);
-		}
-
-		// Getting the Grip Release
-		if (Controller.GetPressUp(SteamVR_Controller.ButtonMask.Grip))
-		{
-			Debug.Log(gameObject.name + " Grip Release");
-		}
+	
 	}
 }
