@@ -55,6 +55,8 @@ public class DirectionalLockBehavior : MonoBehaviour {
 				attempt = ""; // else reset attempt string
 			}
 		}
+
+
 	}
 
 	// initialize audio source

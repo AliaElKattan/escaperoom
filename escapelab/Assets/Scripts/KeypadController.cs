@@ -10,7 +10,6 @@ public class KeypadController : MonoBehaviour {
 
 	public KeypadLEDManager ledManager; 
 
-
 	string key = "2010"; 
 	string attempt = ""; 
 
@@ -20,6 +19,7 @@ public class KeypadController : MonoBehaviour {
 		GameObject g = GameObject.Find("KeypadLED");
 		ledManager = g.GetComponent<KeypadLEDManager> ();
 	}
+
 
 	void Update () { 
 
