@@ -70,9 +70,8 @@ public class InputManager : Photon.MonoBehaviour {
 		}
 
 		// Getting the Trigger press
-		if (Controller.GetHairTriggerDown() && is)
+		if (Controller.GetHairTriggerDown() ) //&& is) 
 		{
-			
 
             if (go == null) {
                 go = GameObject.Find("Cube");

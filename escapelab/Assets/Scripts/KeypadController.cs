@@ -88,7 +88,10 @@ public class KeypadController : MonoBehaviour {
 		sound = GetComponent<AudioSource> ();
 	}
 
+	void OnMouseDown() {
+		clickEffect ();
 
+	}
     
 
 	void clickEffect() { 
