@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: f41ecf12e63cca147a65698d4280a6f3
+timeCreated: 1524062937
+licenseType: Free
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Sander's Scribble
+  fontNames:
+  - Sander's Scribble
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

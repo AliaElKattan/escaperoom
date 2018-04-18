@@ -4344,28 +4344,19 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4681783580571366, guid: 814a34e0a676e47399b6d3738d508437, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 4681783580571366, guid: 814a34e0a676e47399b6d3738d508437, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 4681783580571366, guid: 814a34e0a676e47399b6d3738d508437, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: 4681783580571366, guid: 814a34e0a676e47399b6d3738d508437, type: 2}
-      propertyPath: m_LocalScale.z
-      value: 0.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 4681783580571366, guid: 814a34e0a676e47399b6d3738d508437, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.x
+    - target: {fileID: 82653683926885580, guid: 814a34e0a676e47399b6d3738d508437,
+        type: 2}
+      propertyPath: panLevelCustomCurve.m_RotationOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4681783580571366, guid: 814a34e0a676e47399b6d3738d508437, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.z
+    - target: {fileID: 82653683926885580, guid: 814a34e0a676e47399b6d3738d508437,
+        type: 2}
+      propertyPath: spreadCustomCurve.m_RotationOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 82653683926885580, guid: 814a34e0a676e47399b6d3738d508437,
+        type: 2}
+      propertyPath: reverbZoneMixCustomCurve.m_RotationOrder
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

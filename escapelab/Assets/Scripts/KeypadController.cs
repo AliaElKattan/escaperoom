@@ -22,6 +22,8 @@ public class KeypadController : MonoBehaviour {
 	}
 
 	void Update () { 
+
+       
 		if (Input.GetMouseButtonDown (0)) {
 			Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition); 
 			RaycastHit hit; 
@@ -86,12 +88,8 @@ public class KeypadController : MonoBehaviour {
 		sound = GetComponent<AudioSource> ();
 	}
 
-	/* when mouse is clicked, plays audio, changes color to 
-	 * highlightColor and resets to defaultColor */
-	void OnMouseDown() {
-		clickEffect ();
 
-	}
+    
 
 	void clickEffect() { 
 		//Debug.Log("clicked");
