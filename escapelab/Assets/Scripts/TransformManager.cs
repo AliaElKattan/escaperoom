@@ -39,7 +39,7 @@ public class TransformManager : Photon.MonoBehaviour {
 		GetComponent<KeypadController> ().inputButton = buttonName;
 
 		if (photonView.isMine)
-			photonView.RPC("buttonInput", PhotonTargets.All, buttonName);
+			photonView.RPC("buttonInput", PhotonTargets.Others, buttonName);
 
 
 	}
