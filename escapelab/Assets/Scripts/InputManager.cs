@@ -10,86 +10,81 @@ public class InputManager : Photon.MonoBehaviour {
 	private SteamVR_TrackedObject trackedObj;
 	// Getting a reference to the controller Interface
 	private SteamVR_Controller.Device Controller;
-    public LayerMask puzzleButtonLayer;
+	public LayerMask puzzleButtonLayer;
 	public GameObject spherePrefab;
 	public GameObject go;
-    public float RaycastHitDistance = 4.0f;
-    bool isPointingAtPuzzle = false;
-    private GameObject puzzleObject;
+	public float RaycastHitDistance = 4.0f;
+	bool isPointingAtPuzzle = false;
+	private GameObject puzzleObject;
 
-    void Raycasting() {
+	void Raycasting() {
 
 
-        Vector3 fwd = transform.TransformDirection(Vector3.forward); //what is the direction in front of us
-        RaycastHit hit = new RaycastHit();
+		Vector3 fwd = transform.TransformDirection(Vector3.forward); //what is the direction in front of us
+		RaycastHit hit = new RaycastHit();
 
-        if (Physics.Raycast(transform.position, fwd, out hit, RaycastHitDistance, puzzleButtonLayer)) {
+		if (Physics.Raycast(transform.position, fwd, out hit, RaycastHitDistance, puzzleButtonLayer)) {
+			Debug.Log ("it hit!");
 
 			//get the puzzle object that we're raycasting on
 			puzzleObject = hit.collider.gameObject;
-
-			if (!puzzleObject.GetPhotonView ().isMine) {
-
-				puzzleObject.GetComponent<PhotonView> ().RequestOwnership ();
-
+			if (!puzzleObject.transform.root.gameObject.GetComponent<PhotonView> ().isMine) {
+				puzzleObject.transform.root.gameObject.GetComponent<PhotonView> ().RequestOwnership ();
 			}
+			isPointingAtPuzzle = true;
 
-            isPointingAtPuzzle = true;
+		}
+		else {
 
-        }
-        else {
+			isPointingAtPuzzle = false;
 
-            isPointingAtPuzzle = false;
+		}
 
-        }
-
-    }
-
+	}
 
 
-    void Start(){
+
+	void Start(){
 	}
 
 	void Awake()
 	{
 		// initialize the trackedObj to the component of the controller to which the script is attached
 		trackedObj = GetComponentInParent<SteamVR_TrackedObject>();
-        puzzleButtonLayer = LayerMask.GetMask("puzzleButtonLayer");
+		puzzleButtonLayer = LayerMask.GetMask("puzzleButtonLayer");
 
-    }
+	}
 
-    // Update is called once per frame
-    void Update () {
+	// Update is called once per frame
+	void Update () {
 
 
 
-        Raycasting();
-        Controller = SteamVR_Controller.Input((int)trackedObj.index);
+		Raycasting();
+		Controller = SteamVR_Controller.Input((int)trackedObj.index);
 
 
 		// trigger pressed while interacting with a puzzle element. this will signify a button press (either in direction or number pad)
 		if (Controller.GetHairTriggerDown() && isPointingAtPuzzle ) 
 		{
-			
-			if (puzzleObject.GetComponentsInParent<KeypadController> ()) {
-			//this is keypad lock.
-				puzzleObject.GetComponentInParent<KeypadController>().hasNewInput = true;
-				puzzleObject.GetComponentInParent<KeypadController> ().touchedButton = puzzleObject;
 
-			
-			} else if (puzzleObject.GetComponentsInParent<DirectionalLockBehavior> ()) {
+			if (puzzleObject.GetComponentInParent<keypadButtonBehavior> ()) {
+				//this is keypad lock.
+				puzzleObject.GetComponentInParent<keypadButtonBehavior>().hasInput = true;
+
+			} else if (puzzleObject.GetComponentInParent<DirectionalLockBehavior> ()) {
 
 				Debug.Log ("Not yet implemented");
-			
-			
+
+
 			}
 
 
 		}
-			
 
 
 
-	
+
+
 	}
 }

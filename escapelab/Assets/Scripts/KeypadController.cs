@@ -10,7 +10,7 @@ public class KeypadController : MonoBehaviour {
 
 	public KeypadLEDManager ledManager; 
 	public bool hasNewInput = false;
-	public GameObject touchedButton;
+	public string inputButton;
 
 	string key = "2010";
 	string attempt = ""; 
@@ -25,73 +25,80 @@ public class KeypadController : MonoBehaviour {
 
 
 	void Update () { 
-       
+
 		if (hasNewInput) {
-			
+
 			hasNewInput = false;
 
-			if (touchedButton.name == "Keypad0") {
+			if (inputButton == "Keypad0") {
 				attempt = attempt+"0";
 				Debug.Log (attempt);
 				newNum = 0;
 			}
-			if (touchedButton.name == "Keypad1") {
+			if (inputButton == "Keypad1") {
 				attempt = attempt+"1";
 				Debug.Log (attempt);
 				newNum = 1;
 			}
-			if (touchedButton.name == "Keypad2") {
+			if (inputButton == "Keypad2") {
 				attempt = attempt+"2";
 				Debug.Log (attempt);
 				newNum = 2;
 
 			}
-			if (touchedButton.name == "Keypad3") {
+			if (inputButton == "Keypad3") {
 				attempt = attempt+"3";
 				Debug.Log (attempt);
 				newNum = 3;
 
 			}
-			if (touchedButton.name == "Keypad4") {
+			if (inputButton == "Keypad4") {
 				attempt = attempt+"4";
 				Debug.Log (attempt);
 				newNum = 4;
 
 			}
-			if (touchedButton.name == "Keypad5") {
+			if (inputButton == "Keypad5") {
 				attempt = attempt+"5";
 				Debug.Log (attempt);
 				newNum = 5;
 
 			}
-			if (touchedButton.name == "Keypad6") {
+			if (inputButton == "Keypad6") {
 				attempt = attempt+"6";
 				Debug.Log (attempt);
 				newNum = 6;
 
 			}
-			if (touchedButton.name == "Keypad7") {
+			if (inputButton == "Keypad7") {
 				attempt = attempt+"7";
 				Debug.Log (attempt);
 				newNum = 7;
 
 			}
-			if (touchedButton.name == "Keypad8") {
+			if (inputButton == "Keypad8") {
 				attempt = attempt+"8";
 				Debug.Log (attempt);
 				newNum = 8;
 
 			}
-			if (touchedButton.name == "Keypad9") {
+			if (inputButton == "Keypad9") {
 				attempt = attempt+"9";
 				Debug.Log (attempt);
 				newNum = 9;
 
 			}
 
+			clickEffect ();
 
-			PhotonView.RPC ("buttonInput", PhotonTargets.OthersBuffered, attempt);
-
+			if (attempt.Length >= 4) { // only 6 inputs are allowed
+				if (key == attempt) { // if key and attempt strings are matching
+					ledManager.changeColor = true; // change color from red to green
+				}
+				else {
+					attempt = ""; // else reset attempt string
+				}
+			}
 		}
 	}
 
@@ -104,7 +111,7 @@ public class KeypadController : MonoBehaviour {
 
 	void clickEffect() { 
 		//Debug.Log("clicked");
-		sound.Play ();
+		//sound.Play ();
 		GetComponent<MeshRenderer> ().material.color = highlightColor;
 		Invoke ("resetColor", resetDelay);
 	}
@@ -114,25 +121,9 @@ public class KeypadController : MonoBehaviour {
 
 	}
 
-	//handle keypad input from a user.
-	[PunRPC] public void buttonInput(string attempt){
-
-
-		clickEffect ();
-
-		if (attempt.Length == 4) { // only 6 inputs are allowed
-			if (key == attempt) { // if key and attempt strings are matching
-				ledManager.changeColor = true; // change color from red to green
-			}
-			else {
-				attempt = ""; // else reset attempt string
-			}
-		}
-
-		if (PhotonView.isMine)
-			PhotonView.RPC("buttonInput", PhotonTargets.OthersBuffered, attempt);
-		
-	}
-
 
 }
+
+
+
+

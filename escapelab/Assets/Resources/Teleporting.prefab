@@ -690,7 +690,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   index: -1
   modelOverride: 
-  shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
+  shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 3}
   verbose: 0
   createComponents: 1
   updateDynamically: 1
@@ -989,14 +989,18 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1441395382052000}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0b0c7d8e90ab8f6469a92f115cc282e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  puzzleButtonLayer:
+    serializedVersion: 2
+    m_Bits: 256
   spherePrefab: {fileID: 1116721138539456, guid: b4d03460bdbcb134f823996d4123b5ba,
     type: 2}
   go: {fileID: 0}
+  RaycastHitDistance: 4
 --- !u!114 &114604071623406188
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1070,7 +1074,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   index: -1
   modelOverride: 
-  shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
+  shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 3}
   verbose: 0
   createComponents: 1
   updateDynamically: 1
@@ -1171,14 +1175,18 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1432229476037080}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0b0c7d8e90ab8f6469a92f115cc282e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  puzzleButtonLayer:
+    serializedVersion: 2
+    m_Bits: 256
   spherePrefab: {fileID: 1116721138539456, guid: b4d03460bdbcb134f823996d4123b5ba,
     type: 2}
   go: {fileID: 0}
+  RaycastHitDistance: 4
 --- !u!114 &114846395910303926
 MonoBehaviour:
   m_ObjectHideFlags: 1

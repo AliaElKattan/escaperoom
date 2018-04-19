@@ -42,4 +42,5 @@ MonoBehaviour:
   - SetNewParent
   - MakeTransparent
   - MakeVisible
+  - buttonInput
   DisableAutoOpenWizard: 1
