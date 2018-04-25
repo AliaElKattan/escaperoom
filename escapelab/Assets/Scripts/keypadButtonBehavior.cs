@@ -32,6 +32,7 @@ public class keypadButtonBehavior : MonoBehaviour {
 
 			this.GetComponentInParent<TransformManager> ().hasNewInput = true;
 			this.GetComponentInParent<TransformManager> ().inputButton = this.name;
+			clickEffect ();
 		}
 	}
 
@@ -43,6 +44,7 @@ public class keypadButtonBehavior : MonoBehaviour {
 		//Debug.Log("clicked");
 		sound.Play ();
 		GetComponent<MeshRenderer> ().material.color = highlightColor;
+		Debug.Log ("Hello color change");
 		Invoke ("resetColor", resetDelay);
 	}
 
