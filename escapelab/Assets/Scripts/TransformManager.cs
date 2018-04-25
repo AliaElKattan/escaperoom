@@ -47,6 +47,8 @@ public class TransformManager : Photon.MonoBehaviour {
 			GetComponent<DirectionalLockBehavior> ().inputButton = buttonName;
 		}
 
+		GameObject.Find (buttonName).GetComponent<keypadButtonBehavior> ().runClickEffect = true;
+
 
 		if (photonView.isMine)
 			photonView.RPC("buttonInput", PhotonTargets.Others, buttonName);

@@ -8,7 +8,7 @@ public class keypadButtonBehavior : MonoBehaviour {
 	[SerializeField]Color defaultColor; 
 	[SerializeField]Color highlightColor; 
 	[SerializeField]float resetDelay = 0.2f;
-
+	public bool runClickEffect = false;
 	public bool hasInput = false;
 
 	// Use this for initialization
@@ -32,6 +32,11 @@ public class keypadButtonBehavior : MonoBehaviour {
 
 			this.GetComponentInParent<TransformManager> ().hasNewInput = true;
 			this.GetComponentInParent<TransformManager> ().inputButton = this.name;
+
+		}
+
+		if (runClickEffect) {
+			runClickEffect = false;
 			clickEffect ();
 		}
 	}
