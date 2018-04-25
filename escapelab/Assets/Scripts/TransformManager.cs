@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -34,9 +35,18 @@ public class TransformManager : Photon.MonoBehaviour {
 
 	//handle keypad input from a user.
 	[PunRPC] public void buttonInput(string buttonName){
+		Debug.Log (buttonName);
+		if (this.gameObject.GetComponent<KeypadController> ()) {
 
-		GetComponent<KeypadController>().hasNewInput = true;
-		GetComponent<KeypadController> ().inputButton = buttonName;
+			GetComponent<KeypadController> ().hasNewInput = true;
+			GetComponent<KeypadController> ().inputButton = buttonName;
+
+		} else if (this.gameObject.GetComponent<DirectionalLockBehavior> ()) {
+
+			GetComponent<DirectionalLockBehavior> ().hasNewInput = true;
+			GetComponent<DirectionalLockBehavior> ().inputButton = buttonName;
+		}
+
 
 		if (photonView.isMine)
 			photonView.RPC("buttonInput", PhotonTargets.Others, buttonName);

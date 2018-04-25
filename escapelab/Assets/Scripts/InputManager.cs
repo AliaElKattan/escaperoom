@@ -1,4 +1,7 @@
-﻿using System.Collections;
+﻿
+
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -58,8 +61,6 @@ public class InputManager : Photon.MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-
-
 		Raycasting();
 		Controller = SteamVR_Controller.Input((int)trackedObj.index);
 
@@ -68,17 +69,7 @@ public class InputManager : Photon.MonoBehaviour {
 		if (Controller.GetHairTriggerDown() && isPointingAtPuzzle ) 
 		{
 
-			if (puzzleObject.GetComponentInParent<keypadButtonBehavior> ()) {
-				//this is keypad lock.
-				puzzleObject.GetComponentInParent<keypadButtonBehavior>().hasInput = true;
-
-			} else if (puzzleObject.GetComponentInParent<DirectionalLockBehavior> ()) {
-
-				Debug.Log ("Not yet implemented");
-
-
-			}
-
+			puzzleObject.GetComponentInParent<keypadButtonBehavior>().hasInput = true;
 
 		}
 
@@ -88,3 +79,4 @@ public class InputManager : Photon.MonoBehaviour {
 
 	}
 }
+

@@ -1,12 +1,10 @@
-﻿using System.Collections;
+﻿
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class KeypadController : MonoBehaviour {
-	[SerializeField]Color defaultColor; 
-	[SerializeField]Color highlightColor; 
-	[SerializeField]float resetDelay = 0.2f;
-	AudioSource sound;
+
 
 	public KeypadLEDManager ledManager; 
 	public bool hasNewInput = false;
@@ -18,7 +16,7 @@ public class KeypadController : MonoBehaviour {
 
 	// initialize resetColor function (defaultColor) 
 	void Start () {
-		resetColor ();
+
 		GameObject g = GameObject.Find("KeypadLED");
 		ledManager = g.GetComponent<KeypadLEDManager> ();
 	}
@@ -27,7 +25,6 @@ public class KeypadController : MonoBehaviour {
 	void Update () { 
 
 		if (hasNewInput) {
-
 			hasNewInput = false;
 
 			if (inputButton == "Keypad0") {
@@ -89,8 +86,6 @@ public class KeypadController : MonoBehaviour {
 
 			}
 
-			clickEffect ();
-
 			if (attempt.Length >= 4) { // only 6 inputs are allowed
 				if (key == attempt) { // if key and attempt strings are matching
 					ledManager.changeColor = true; // change color from red to green
@@ -102,28 +97,4 @@ public class KeypadController : MonoBehaviour {
 		}
 	}
 
-	// initialize audio source
-	void Awake() { 
-		sound = GetComponent<AudioSource> ();
-	}
-
-
-
-	void clickEffect() { 
-		//Debug.Log("clicked");
-		//sound.Play ();
-		GetComponent<MeshRenderer> ().material.color = highlightColor;
-		Invoke ("resetColor", resetDelay);
-	}
-
-	void resetColor() {
-		GetComponent<MeshRenderer> ().material.color = defaultColor;
-
-	}
-
-
 }
-
-
-
-
