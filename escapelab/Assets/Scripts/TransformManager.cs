@@ -22,9 +22,10 @@ public class TransformManager : Photon.MonoBehaviour {
 
 		//there was a button input
 		if (hasNewInput) {
-
+			Debug.Log (inputButton);
 			hasNewInput = false;
 			buttonInput (inputButton);
+
 		}
 		//Update the movement
 		if (!photonView.isMine) {
@@ -35,7 +36,9 @@ public class TransformManager : Photon.MonoBehaviour {
 
 	//handle keypad input from a user.
 	[PunRPC] public void buttonInput(string buttonName){
-		Debug.Log (buttonName);
+
+
+
 		if (this.gameObject.GetComponent<KeypadController> ()) {
 
 			GetComponent<KeypadController> ().hasNewInput = true;
@@ -45,6 +48,11 @@ public class TransformManager : Photon.MonoBehaviour {
 
 			GetComponent<DirectionalLockBehavior> ().hasNewInput = true;
 			GetComponent<DirectionalLockBehavior> ().inputButton = buttonName;
+		} else if (this.gameObject.GetComponent<WireBehavior> ()) {
+
+			GetComponent<WireBehavior> ().hasNewInput = true;
+			GetComponent<WireBehavior> ().inputButton = buttonName;
+
 		}
 
 		GameObject.Find (buttonName).GetComponent<keypadButtonBehavior> ().runClickEffect = true;
