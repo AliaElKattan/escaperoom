@@ -68,9 +68,12 @@ public class InputManager : Photon.MonoBehaviour {
 		// trigger pressed while interacting with a puzzle element. this will signify a button press (either in direction or number pad)
 		if (Controller.GetHairTriggerDown() && isPointingAtPuzzle ) 
 		{
+			if (puzzleObject.GetComponentInParent<keypadButtonBehavior> ()) {
+				puzzleObject.GetComponentInParent<keypadButtonBehavior> ().hasInput = true;
+			} else if (puzzleObject.GetComponentInParent<fixWireButtonBehavior> ()) {
+				puzzleObject.GetComponentInParent<fixWireButtonBehavior> ().hasInput = true;
 
-			puzzleObject.GetComponentInParent<keypadButtonBehavior>().hasInput = true;
-
+			}
 		}
 
 

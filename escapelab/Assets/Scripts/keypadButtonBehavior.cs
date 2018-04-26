@@ -49,7 +49,6 @@ public class keypadButtonBehavior : MonoBehaviour {
 		//Debug.Log("clicked");
 		sound.Play ();
 		GetComponent<MeshRenderer> ().material.color = highlightColor;
-		Debug.Log ("Hello color change");
 		Invoke ("resetColor", resetDelay);
 	}
 

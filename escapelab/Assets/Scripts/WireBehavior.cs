@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class WireBehavior : MonoBehaviour {
 
+	public bool hasNewInput = false;
+	public string inputButton;
+
 	[SerializeField]Color defaultColor; 
 	[SerializeField]Color highlightColor; 
 	[SerializeField]float resetDelay = 0.2f;
@@ -59,65 +62,60 @@ public class WireBehavior : MonoBehaviour {
 		w5.GetComponent<MeshRenderer> ().material.color = Color.yellow;
 
 
-		if (Input.GetMouseButtonDown (0)) {
-			Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition); 
-			RaycastHit hit; 
+		if (hasNewInput) {
 
-			if (Physics.Raycast (ray, out hit, 100)) {
-				Debug.Log (hit.transform.gameObject.name); 
-			}
 
 
 			// LEFT WIRE BASE 
 
-			if (hit.transform.gameObject.name == "LeftWireBase1") {
+			if (inputButton == "LeftWireBase1") {
 				attempt = attempt + "1";
 				Debug.Log (attempt); 
 			}
 
-			if (hit.transform.gameObject.name == "LeftWireBase2") {
+			if (inputButton == "LeftWireBase2") {
 				attempt = attempt + "2";
 				Debug.Log (attempt); 
 			}
 
-			if (hit.transform.gameObject.name == "LeftWireBase3") {
+			if (inputButton == "LeftWireBase3") {
 				attempt = attempt + "3";
 				Debug.Log (attempt); 
 			}
 
-			if (hit.transform.gameObject.name == "LeftWireBase4") {
+			if (inputButton == "LeftWireBase4") {
 				attempt = attempt + "4";
 				Debug.Log (attempt); 
 			}
 
-			if (hit.transform.gameObject.name == "LeftWireBase5") {
+			if (inputButton == "LeftWireBase5") {
 				attempt = attempt + "5";
 				Debug.Log (attempt); 
 			}
 
 			// RIGHT WIRE BASE
 
-			if (hit.transform.gameObject.name == "RightWireBase1") {
+			if (inputButton == "RightWireBase1") {
 				attempt = attempt + "6";
 				Debug.Log (attempt); 
 			}
 
-			if (hit.transform.gameObject.name == "RightWireBase2") {
+			if (inputButton == "RightWireBase2") {
 				attempt = attempt + "7";
 				Debug.Log (attempt); 
 			}
 
-			if (hit.transform.gameObject.name == "RightWireBase3") {
+			if (inputButton == "RightWireBase3") {
 				attempt = attempt + "8";
 				Debug.Log (attempt); 
 			}
 
-			if (hit.transform.gameObject.name == "RightWireBase4") {
+			if (inputButton == "RightWireBase4") {
 				attempt = attempt + "9";
 				Debug.Log (attempt); 
 			}
 
-			if (hit.transform.gameObject.name == "RightWireBase5") {
+			if (inputButton == "RightWireBase5") {
 				attempt = attempt + "0";
 				Debug.Log (attempt); 
 			}
