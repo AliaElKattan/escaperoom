@@ -736,7 +736,7 @@ PlayerSettings:
   facebookSdkVersion: 7.9.4
   apiCompatibilityLevel: 2
   cloudProjectId: b8f2ee3e-6971-43a5-a0d8-19cd1d9df3c7
-  projectName: 
+  projectName: escapelab
   organizationId: aliaelkattan
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
