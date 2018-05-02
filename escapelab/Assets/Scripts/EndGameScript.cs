@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EndGameScript : MonoBehaviour {
 	public float fadeSpeed = 0.5F;
@@ -13,7 +14,7 @@ public class EndGameScript : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		
-		canvasOverlay = GameObject.Find("Overlay").GetComponent<RawImage>();
+		//canvasOverlay = GameObject.Find("Overlay").GetComponent<RawImage>();
 
 	}
 	
@@ -21,19 +22,22 @@ public class EndGameScript : MonoBehaviour {
 	void Update () {
 
 	
-		if(solvedPuzzleCount >=2){
+		if(solvedPuzzleCount >=3){
 			endThisGame=true;
 		}
 
 
 
 		if (endThisGame) {
-			StartCoroutine( Fade (0F, 1, fadeSpeed) );
+			Debug.Log ("game ending");
+			SceneManager.LoadScene ("end");
+			//StartCoroutine( Fade (0F, 1, fadeSpeed) );
+			Debug.Log ("fading");
 		}
 		
 	}
 
-
+	/*
 
 	IEnumerator Fade(float alpha, int direction, float speed)
 	{
@@ -64,5 +68,5 @@ public class EndGameScript : MonoBehaviour {
 
 
 	}
-
+*/
 }
