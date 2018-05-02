@@ -38,6 +38,7 @@ public class TimerLockController : MonoBehaviour {
         
 		if (hasInput) {
 			hasInput = false;
+			Debug.Log ("TimerLock Controller has new input!");
 
 			this.GetComponentInParent<TransformManager> ().hasNewInput = true;
 			this.GetComponentInParent<TransformManager> ().inputButton = this.name;

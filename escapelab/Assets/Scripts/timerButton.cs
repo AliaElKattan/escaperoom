@@ -34,13 +34,13 @@ public class timerButton : MonoBehaviour
         {
 			hasNewInput = false;
             
-			if (inputButton == "Keypad2" && onePressed == true)
+			if (inputButton == "TimerButton2" && onePressed == true)
             {
                 hasPressed = true;
                 //twoPressed = true;
             }
 
-			if (inputButton == "Keypad1")
+			if (inputButton == "TimerButton1")
             {
 				
                 onePressed = true;

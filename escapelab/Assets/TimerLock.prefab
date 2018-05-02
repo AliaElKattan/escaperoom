@@ -162,7 +162,6 @@ GameObject:
   - component: {fileID: 23689163420139872}
   - component: {fileID: 114707707693829134}
   - component: {fileID: 82198010141914156}
-  - component: {fileID: 114970688757094564}
   m_Layer: 8
   m_Name: Keypad2
   m_TagString: Untagged
@@ -255,7 +254,6 @@ GameObject:
   - component: {fileID: 23292937955172364}
   - component: {fileID: 114877666845974674}
   - component: {fileID: 82118834561561604}
-  - component: {fileID: 114379891959618102}
   m_Layer: 8
   m_Name: Keypad1
   m_TagString: Untagged
@@ -1027,22 +1025,6 @@ MonoBehaviour:
   lightFactor: 0
   LED: {fileID: 0}
   changeColor: 0
---- !u!114 &114379891959618102
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1860508049408964}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: efe985d7c5e69994486f4875e282c09d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  defaultColor: {r: 0, g: 0, b: 0, a: 0}
-  highlightColor: {r: 0, g: 0, b: 0, a: 0}
-  resetDelay: 0.2
-  runClickEffect: 0
-  hasInput: 0
 --- !u!114 &114416155885074520
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1182,8 +1164,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultColor: {r: 0, g: 0, b: 0, a: 0}
-  highlightColor: {r: 0, g: 0, b: 0, a: 0}
+  highlightColor: {r: 0.7607844, g: 0.7607844, b: 0.7607844, a: 0}
   resetDelay: 0.2
+  hasInput: 0
+  runClickEffect: 0
   ledManager: {fileID: 0}
 --- !u!114 &114723897355083756
 MonoBehaviour:
@@ -1244,8 +1228,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   defaultColor: {r: 0, g: 0, b: 0, a: 0}
-  highlightColor: {r: 0, g: 0, b: 0, a: 0}
+  highlightColor: {r: 0.7607844, g: 0.7607844, b: 0.7607844, a: 0}
   resetDelay: 0.2
+  hasInput: 0
+  runClickEffect: 0
   ledManager: {fileID: 0}
 --- !u!114 &114878960349637030
 MonoBehaviour:
@@ -1268,22 +1254,6 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
---- !u!114 &114970688757094564
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1397795227668890}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: efe985d7c5e69994486f4875e282c09d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  defaultColor: {r: 0, g: 0, b: 0, a: 0}
-  highlightColor: {r: 0, g: 0, b: 0, a: 0}
-  resetDelay: 0.2
-  runClickEffect: 0
-  hasInput: 0
 --- !u!114 &114981631622261218
 MonoBehaviour:
   m_ObjectHideFlags: 1

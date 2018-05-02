@@ -36,7 +36,7 @@ public class TransformManager : Photon.MonoBehaviour {
 
 	//handle keypad input from a user.
 	[PunRPC] public void buttonInput(string buttonName){
-
+		Debug.Log (buttonName);
 		if (this.gameObject.GetComponent<timerButton> ()) {
 
 			GetComponent<timerButton> ().hasNewInput = true;
