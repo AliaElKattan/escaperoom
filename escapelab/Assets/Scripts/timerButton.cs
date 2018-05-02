@@ -62,6 +62,11 @@ public class timerButton : MonoBehaviour
                 gameSolved = true;
                 Debug.Log("Puzzle Solved!!!!!");
 				GetComponent<TimerLockLEDManager> ().changeColor = true;
+				GameObject[] arr = GameObject.FindGameObjectsWithTag("box2");
+
+				for(int i=0;i<2;i++){
+					arr[i].GetComponent<cardboardswitch1>().solved = true;
+				}
             }
             else
             {

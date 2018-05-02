@@ -11,6 +11,16 @@ public class WireBehavior : MonoBehaviour {
 	[SerializeField]Color highlightColor; 
 	[SerializeField]float resetDelay = 0.2f;
 	AudioSource sound;
+	bool solved1 = false;
+	bool solved2 = false;
+	bool solved3 = false;
+	bool solved4 = false;
+	bool solved5 = false;
+
+
+
+
+
 
 	string attempt = "";
 
@@ -145,5 +155,14 @@ public class WireBehavior : MonoBehaviour {
 				attempt = ""; // else reset attempt string
 			}
 		}
+
+		if (solved1 && solved2 && solved3 && solved4 && solved5) {
+			GameObject[] arr = GameObject.FindGameObjectsWithTag("box4");
+
+			for(int i=0;i<2;i++){
+				arr[i].GetComponent<cardboardswitch1>().solved = true;
+			}
+		}
+
 	}
 }
