@@ -5901,6 +5901,26 @@ Transform:
   m_Father: {fileID: 619159165}
   m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &559284456 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1958255558128532, guid: 97850ea08cbdbc64dbdef960077be022,
+    type: 2}
+  m_PrefabInternal: {fileID: 1416808948}
+--- !u!114 &559284457
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 559284456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b2648d65d6a8de4ebf8a07203874b70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lightFactor: 0
+  LED1: {fileID: 1138387129}
+  LED2: {fileID: 988904124}
+  changeColor: 0
 --- !u!1 &563111411 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100058, guid: 9484d1189abbfee4187ae11b7ca8eb07, type: 3}
@@ -9873,6 +9893,11 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!1 &988904124 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1043131623234598, guid: 97850ea08cbdbc64dbdef960077be022,
+    type: 2}
+  m_PrefabInternal: {fileID: 1416808948}
 --- !u!1 &991785333
 GameObject:
   m_ObjectHideFlags: 0
@@ -12006,6 +12031,11 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!1 &1138387129 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1655105525351192, guid: 97850ea08cbdbc64dbdef960077be022,
+    type: 2}
+  m_PrefabInternal: {fileID: 1416808948}
 --- !u!1 &1145602166
 GameObject:
   m_ObjectHideFlags: 0
@@ -13687,7 +13717,19 @@ Prefab:
       propertyPath: m_Name
       value: TimerButton2
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 114206352291684718, guid: 97850ea08cbdbc64dbdef960077be022,
+        type: 2}
+      propertyPath: ledManager
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114206352291684718, guid: 97850ea08cbdbc64dbdef960077be022,
+        type: 2}
+      propertyPath: ledManager2
+      value: 
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 114277578025918652, guid: 97850ea08cbdbc64dbdef960077be022, type: 2}
+    - {fileID: 114246849591182214, guid: 97850ea08cbdbc64dbdef960077be022, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 97850ea08cbdbc64dbdef960077be022, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1422627040
@@ -19429,6 +19471,36 @@ Prefab:
         type: 2}
       propertyPath: InitialModule.startLifetime.scalar
       value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 198263084409867586, guid: 57721b0744af001479b5e0924379fb17,
+        type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 198263084409867586, guid: 57721b0744af001479b5e0924379fb17,
+        type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 198263084409867586, guid: 57721b0744af001479b5e0924379fb17,
+        type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 198263084409867586, guid: 57721b0744af001479b5e0924379fb17,
+        type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 198263084409867586, guid: 57721b0744af001479b5e0924379fb17,
+        type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
+      objectReference: {fileID: 0}
+    - target: {fileID: 198263084409867586, guid: 57721b0744af001479b5e0924379fb17,
+        type: 2}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1.0000
       objectReference: {fileID: 0}
     - target: {fileID: 198263084409867586, guid: 57721b0744af001479b5e0924379fb17,
         type: 2}

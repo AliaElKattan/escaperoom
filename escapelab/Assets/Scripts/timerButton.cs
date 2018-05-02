@@ -20,11 +20,8 @@ public class timerButton : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        GameObject g = GameObject.Find("KeypadLED");
-        ledManager = g.GetComponent<TimerLockLEDManager>();
-        GameObject g2 = GameObject.Find("KeypadLED2");
-        ledManager2 = g2.GetComponent<TimerLockLEDManager>();
-
+   		
+      
     }
 
     // Update is called once per frame
@@ -63,8 +60,7 @@ public class timerButton : MonoBehaviour
             {
                 gameSolved = true;
                 Debug.Log("Puzzle Solved!!!!!");
-                ledManager.changeColor = true;
-                ledManager2.changeColor = true;
+				GetComponent<TimerLockLEDManager> ().changeColor = true;
             }
             else
             {
