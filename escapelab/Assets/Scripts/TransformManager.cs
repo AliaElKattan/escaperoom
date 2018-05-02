@@ -37,27 +37,32 @@ public class TransformManager : Photon.MonoBehaviour {
 	//handle keypad input from a user.
 	[PunRPC] public void buttonInput(string buttonName){
 
+		if (this.gameObject.GetComponent<timerButton> ()) {
 
+			GetComponent<timerButton> ().hasNewInput = true;
+			GetComponent<timerButton> ().inputButton = buttonName;
 
-		if (this.gameObject.GetComponent<KeypadController> ()) {
+		} else {
 
-			GetComponent<KeypadController> ().hasNewInput = true;
-			GetComponent<KeypadController> ().inputButton = buttonName;
+			if (this.gameObject.GetComponent<KeypadController> ()) {
 
-		} else if (this.gameObject.GetComponent<DirectionalLockBehavior> ()) {
+				GetComponent<KeypadController> ().hasNewInput = true;
+				GetComponent<KeypadController> ().inputButton = buttonName;
 
-			GetComponent<DirectionalLockBehavior> ().hasNewInput = true;
-			GetComponent<DirectionalLockBehavior> ().inputButton = buttonName;
-		} else if (this.gameObject.GetComponent<WireBehavior> ()) {
+			} else if (this.gameObject.GetComponent<DirectionalLockBehavior> ()) {
 
-			GetComponent<WireBehavior> ().hasNewInput = true;
-			GetComponent<WireBehavior> ().inputButton = buttonName;
+				GetComponent<DirectionalLockBehavior> ().hasNewInput = true;
+				GetComponent<DirectionalLockBehavior> ().inputButton = buttonName;
+			} else if (this.gameObject.GetComponent<WireBehavior> ()) {
+
+				GetComponent<WireBehavior> ().hasNewInput = true;
+				GetComponent<WireBehavior> ().inputButton = buttonName;
+
+			} 
+
+			GameObject.Find (buttonName).GetComponent<keypadButtonBehavior> ().runClickEffect = true;
 
 		}
-
-		GameObject.Find (buttonName).GetComponent<keypadButtonBehavior> ().runClickEffect = true;
-
-
 		if (photonView.isMine)
 			photonView.RPC("buttonInput", PhotonTargets.Others, buttonName);
 

@@ -73,6 +73,8 @@ public class InputManager : Photon.MonoBehaviour {
 			} else if (puzzleObject.GetComponentInParent<fixWireButtonBehavior> ()) {
 				puzzleObject.GetComponentInParent<fixWireButtonBehavior> ().hasInput = true;
 
+			} else if (puzzleObject.GetComponent<TimerLockController> ()) {
+				puzzleObject.GetComponent<TimerLockController> ().hasInput = true;
 			}
 		}
 

@@ -39,6 +39,7 @@ public class keypadButtonBehavior : MonoBehaviour {
 			runClickEffect = false;
 			clickEffect ();
 		}
+
 	}
 
 
