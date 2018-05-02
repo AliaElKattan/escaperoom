@@ -29,6 +29,7 @@ public class timerButton : MonoBehaviour
     {
 		if (hasNewInput)
         {
+			Debug.Log ("there is a new input");
 			hasNewInput = false;
             
 			if (inputButton == "TimerButton2" && onePressed == true)
@@ -42,7 +43,7 @@ public class timerButton : MonoBehaviour
 				
                 onePressed = true;
 
-                StartCoroutine(CountdownTo((2)));
+                StartCoroutine(CountdownTo((4)));
             	//send out a signal to the other button that this has been signaled.
 
 

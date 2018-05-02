@@ -27,6 +27,8 @@ public class TimerLockLEDManager : MonoBehaviour {
 			colorRed ();
 		} 
 		else {
+			Debug.Log ("In green");
+
 			colorGreen (); 
 		}
 	}
@@ -55,6 +57,7 @@ public class TimerLockLEDManager : MonoBehaviour {
 			c.a = 1f;
 			first.color = c;
 			two.color = c;
+		
 		}
 	}
 }
