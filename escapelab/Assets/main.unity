@@ -2250,7 +2250,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerprefab: {fileID: 1864958486835468, guid: 0350c3cda964e754a998bfb84c899d44,
     type: 2}
-  headsetcubeprefab: {fileID: 1313512912011930, guid: 89c89632a1368f946b644483980da044,
+  headsetcubeprefab: {fileID: 1844996656673610, guid: c99c55966e811684cad25e507799a5dd,
     type: 2}
   capsulehand: {fileID: 1147653991657544, guid: 852f5cfe0e0c07f459bead80ba2ceece,
     type: 2}
