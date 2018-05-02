@@ -41,6 +41,7 @@ public class TransformManager : Photon.MonoBehaviour {
 
 			GetComponent<timerButton> ().hasNewInput = true;
 			GetComponent<timerButton> ().inputButton = buttonName;
+			GameObject.Find (buttonName).GetComponent<TimerLockController> ().runClickEffect = true;
 
 		} else {
 
