@@ -50,6 +50,11 @@ public class DirectionalLockBehavior : MonoBehaviour {
 		if (attempt.Length >= 6) { // only 6 inputs are allowed
 			if (key == attempt) { // if key and attempt strings are matching
 				ledManager.changeColor = true; // change color from red to green
+				GameObject[] arr = GameObject.FindGameObjectsWithTag("box3");
+
+				for(int i=0;i<2;i++){
+					arr[i].GetComponent<cardboardswitch1>().solved = true;
+				}
 			}
 			else {
 				attempt = ""; // else reset attempt string
