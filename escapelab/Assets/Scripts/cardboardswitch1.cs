@@ -11,7 +11,7 @@ public class cardboardswitch1 : MonoBehaviour {
     public GameObject audio;
 
 	public bool solved = false;
-
+	bool counted = false;
 
 
 
@@ -46,15 +46,19 @@ public class cardboardswitch1 : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         //if (Input.GetKeyDown("space"))
-
+		if (solved && (!counted) ) {
+			GetComponentInParent<EndGameScript> ().solvedPuzzleCount += 1;
+		}
 		if (solved == true)
 		{
+			counted = true;
             Debug.Log("space pressed");
             audio.SetActive(true);
             closedBox.SetActive(false);
             openBox.SetActive(true);
-            light.SetActive(true);  
+            light.SetActive(true);
         }
+
 
     }
 }
