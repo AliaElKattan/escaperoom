@@ -42,7 +42,7 @@ public class timerButton : MonoBehaviour
 				
                 onePressed = true;
 
-                StartCoroutine(CountdownTo((2)));
+                StartCoroutine(CountdownTo((4)));
             	//send out a signal to the other button that this has been signaled.
 
 
