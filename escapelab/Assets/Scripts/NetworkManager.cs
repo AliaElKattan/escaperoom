@@ -130,7 +130,8 @@ public class NetworkManager : MonoBehaviour {
 
 		//Find headset and instaniate cube ON NETWORK -- set headset as cube's parent
 		GameObject headset = GameObject.Find ("Camera (eye)");
-		GameObject photonCube = PhotonNetwork.Instantiate(headsetcubeprefab.name, headset.transform.position, Quaternion.identity, 0);
+		Vector3 headPos = new Vector3 (headset.transform.position.x, headset.transform.position.y, headset.transform.position.z);
+		GameObject photonCube = PhotonNetwork.Instantiate(headsetcubeprefab.name, headPos, Quaternion.identity, 0);
 		photonCube.transform.SetParent (headset.transform);
 
 		//Find the controllers and instantiate capsules ON NETOWRK -- set controllers as the parents of the capsules

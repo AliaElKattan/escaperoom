@@ -17,8 +17,7 @@ public class KeypadController : MonoBehaviour {
 	// initialize resetColor function (defaultColor) 
 	void Start () {
 
-		GameObject g = GameObject.Find("KeypadLED");
-		ledManager = g.GetComponent<KeypadLEDManager> ();
+
 	}
 
 
@@ -86,8 +85,11 @@ public class KeypadController : MonoBehaviour {
 
 			}
 
+			GetComponentInChildren<TextMesh> ().text = attempt;
+
 			if (attempt.Length >= 4) { // only 6 inputs are allowed
 				if (key == attempt) { // if key and attempt strings are matching
+					ledManager = GetComponentInChildren<KeypadLEDManager> ();
 					ledManager.changeColor = true; // change color from red to green
 					GameObject[] arr = GameObject.FindGameObjectsWithTag("box1");
 

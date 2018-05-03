@@ -131,6 +131,7 @@ GameObject:
   - component: {fileID: 114750460998862954}
   - component: {fileID: 120757692038739244}
   - component: {fileID: 136240884553792442}
+  - component: {fileID: 114588840319227206}
   m_Layer: 0
   m_Name: Controller (left)
   m_TagString: left
@@ -151,6 +152,7 @@ GameObject:
   - component: {fileID: 114407365024546112}
   - component: {fileID: 120991877931207404}
   - component: {fileID: 136174083850487362}
+  - component: {fileID: 114716857544501422}
   m_Layer: 0
   m_Name: Controller (right)
   m_TagString: Untagged
@@ -983,6 +985,24 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &114588840319227206
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1432229476037080}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4e8a839a7c5b7e4580c59e305fb5f01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  active: 1
+  color: {r: 0.9862069, g: 1, b: 0, a: 0}
+  thickness: 0.002
+  holder: {fileID: 0}
+  pointer: {fileID: 0}
+  addRigidBody: 0
+  reference: {fileID: 0}
 --- !u!114 &114598832925001808
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1111,6 +1131,24 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: "\u2190Teleport"
+--- !u!114 &114716857544501422
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1441395382052000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4e8a839a7c5b7e4580c59e305fb5f01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  active: 1
+  color: {r: 1, g: 0.9724138, b: 0, a: 0}
+  thickness: 0.002
+  holder: {fileID: 0}
+  pointer: {fileID: 0}
+  addRigidBody: 0
+  reference: {fileID: 0}
 --- !u!114 &114750460998862954
 MonoBehaviour:
   m_ObjectHideFlags: 1

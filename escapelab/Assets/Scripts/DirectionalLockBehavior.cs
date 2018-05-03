@@ -10,7 +10,7 @@ public class DirectionalLockBehavior : MonoBehaviour {
 	public string inputButton;
 
 	public LEDManager ledManager; 
-
+	string solution;
 
 	string key = "cdabba"; 
 	string attempt = ""; 
@@ -29,20 +29,26 @@ public class DirectionalLockBehavior : MonoBehaviour {
 
 			if (inputButton == "Up") {
 				attempt = attempt+"a";
+				solution += "R ";
 				Debug.Log (attempt);
 			}
 			if (inputButton == "Down") {
 				attempt = attempt+"b";
 				Debug.Log (attempt);
+				solution += "Y ";
+
 			}
 			if (inputButton == "Left") {
 				attempt = attempt+"c";
 				Debug.Log (attempt);
+				solution += "B ";
 			}
 			if (inputButton == "Right") {
 				attempt = attempt+"d";
 				Debug.Log (attempt);
+				solution += "G ";
 			}
+			GetComponentInChildren<TextMesh> ().text = solution;
 
 		}
 
@@ -58,6 +64,7 @@ public class DirectionalLockBehavior : MonoBehaviour {
 			}
 			else {
 				attempt = ""; // else reset attempt string
+				solution = "";
 			}
 		}
 
