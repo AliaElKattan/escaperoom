@@ -12,6 +12,7 @@ public class timerButton : MonoBehaviour
     bool gameSolved = false;
     bool onePressed = false;
     bool twoPressed = false;
+	public bool timerGameSolvedButNetworkBug = false;
     float start_time = 0;
     public TimerLockLEDManager ledManager; 
     public TimerLockLEDManager ledManager2; 
@@ -50,6 +51,19 @@ public class timerButton : MonoBehaviour
 			}
             
         }
+		else if(timerGameSolvedButNetworkBug && gameSolved ==false) {
+
+			gameSolved = true;
+			Debug.Log("Puzzle Solved!!!!!");
+			GetComponent<TimerLockLEDManager> ().changeColor = true;
+			GameObject[] arr = GameObject.FindGameObjectsWithTag("box2");
+
+			for(int i=0;i<2;i++){
+				arr[i].GetComponent<cardboardswitch1>().solved = true;
+			}
+
+		}
+
     }
 
         IEnumerator CountdownTo(float sec)

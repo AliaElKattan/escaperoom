@@ -9,6 +9,7 @@ public class TransformManager : Photon.MonoBehaviour {
 	public float speed = 10f;
 	public bool hasNewInput = false;
 	public string inputButton; 
+	public bool hackyFix_TimerLockSolve = false;
 
 	PhotonView photonView;
 
@@ -27,16 +28,29 @@ public class TransformManager : Photon.MonoBehaviour {
 			buttonInput (inputButton);
 
 		}
+		if (hackyFix_TimerLockSolve) {
+			hackyFix_TimerLockSolve = false;
+			solvedTimerLock ();
+		}
+
 		//Update the movement
 		if (!photonView.isMine) {
 			SyncedMovement ();
 		}
 	}
 
+	[PunRPC] public void solvedTimerLock(){
+		
+		if (this.gameObject.GetComponent<timerButton> ()) {
+
+			GetComponent<timerButton> ().timerGameSolvedButNetworkBug = true;
+		}
+
+	}
 
 	//handle keypad input from a user.
 	[PunRPC] public void buttonInput(string buttonName){
-		Debug.Log (buttonName);
+		
 		if (this.gameObject.GetComponent<timerButton> ()) {
 
 			GetComponent<timerButton> ().hasNewInput = true;
