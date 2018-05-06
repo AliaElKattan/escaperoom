@@ -53,7 +53,7 @@ public class NetworkManager : MonoBehaviour {
 			GUILayout.Label(PhotonNetwork.connectionStateDetailed.ToString());
 		}
 		else if (PhotonNetwork.room == null)
-		{
+		{			
 			// Create Room
 			if (GUI.Button(new Rect(100, 100, 250, 100), "Start Server"))
 				PhotonNetwork.CreateRoom(roomName, new RoomOptions(){MaxPlayers = 6, IsVisible = true}, null);
@@ -82,12 +82,17 @@ public class NetworkManager : MonoBehaviour {
 		Debug.Log ("Current number of players is: " + PhotonNetwork.countOfPlayers);
 		//Waiting for rig to come into the network and connect the player
 
+		//kudos to Elemelons for figuring out this mechanism of initialization.
+		int playerCount = PhotonNetwork.playerList.Length;
+		Debug.Log ("playerCount: "+playerCount);
+
 
         //Place the rig at a spawn point
         Vector3 spawnLocation;
         if (spawnPoints.Length > 0) {
             
-            if (!spawnPointTaken[0]) {
+			if (playerCount < 1) {
+				
                 spawnLocation = spawnPoints[0].position;
                 spawnPointTaken[0] = true;
 
