@@ -91,7 +91,7 @@ public class NetworkManager : MonoBehaviour {
         Vector3 spawnLocation;
         if (spawnPoints.Length > 0) {
             
-			if (playerCount < 1) {
+			if (playerCount <= 1) {
 				
                 spawnLocation = spawnPoints[0].position;
                 spawnPointTaken[0] = true;
@@ -144,12 +144,12 @@ public class NetworkManager : MonoBehaviour {
 		LayerMask playerPlaneLayerMask;
 		if (spawnPointTaken [1] == false) {
 
-			playerPlaneLayerMask = LayerMask.GetMask ("p1Area");
+			playerPlaneLayerMask = LayerMask.GetMask ("p2Area");
 
 
 		} else {
 
-			playerPlaneLayerMask = LayerMask.GetMask ("p2Area");
+			playerPlaneLayerMask = LayerMask.GetMask ("p1Area");
 
 
 		}
