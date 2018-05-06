@@ -12,10 +12,10 @@ public class timerButton : MonoBehaviour
     bool gameSolved = false;
     bool onePressed = false;
     bool twoPressed = false;
-	public bool timerGameSolvedButNetworkBug = false;
     float start_time = 0;
     public TimerLockLEDManager ledManager; 
     public TimerLockLEDManager ledManager2; 
+	public bool timerGameSolvedButNetworkBug = false;
 
 
     // Use this for initialization
@@ -28,31 +28,27 @@ public class timerButton : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-		if (hasNewInput)
-        {
+		if (hasNewInput) {
 			Debug.Log ("there is a new input");
 			hasNewInput = false;
             
-			if (inputButton == "TimerButton2" && onePressed == true)
-            {
-                hasPressed = true;
-                //twoPressed = true;
-            }
+			if (inputButton == "TimerButton2" && onePressed == true) {
+				hasPressed = true;
+				//twoPressed = true;
+			}
 
-			if (inputButton == "TimerButton1")
-            {
+			if (inputButton == "TimerButton1") {
 				
-                onePressed = true;
+				onePressed = true;
 
-                StartCoroutine(CountdownTo((4)));
-            	//send out a signal to the other button that this has been signaled.
+				StartCoroutine (CountdownTo ((1)));
+				//send out a signal to the other button that this has been signaled.
 
 
 			}
             
-        }
-		else if(timerGameSolvedButNetworkBug && gameSolved ==false) {
-
+		} else if (timerGameSolvedButNetworkBug && gameSolved == false) {
+		
 			gameSolved = true;
 			Debug.Log("Puzzle Solved!!!!!");
 			GetComponent<TimerLockLEDManager> ().changeColor = true;
@@ -63,7 +59,6 @@ public class timerButton : MonoBehaviour
 			}
 
 		}
-
     }
 
         IEnumerator CountdownTo(float sec)
@@ -77,7 +72,7 @@ public class timerButton : MonoBehaviour
                 Debug.Log("Puzzle Solved!!!!!");
 				GetComponent<TimerLockLEDManager> ().changeColor = true;
 				GameObject[] arr = GameObject.FindGameObjectsWithTag("box2");
-
+				GetComponent<TransformManager> ().hackyFix_TimerLockSolve = true;
 				for(int i=0;i<2;i++){
 					arr[i].GetComponent<cardboardswitch1>().solved = true;
 				}
