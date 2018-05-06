@@ -90,10 +90,12 @@ public class NetworkManager : MonoBehaviour {
             if (!spawnPointTaken[0]) {
                 spawnLocation = spawnPoints[0].position;
                 spawnPointTaken[0] = true;
+
             }
             else {
                 spawnLocation = spawnPoints[1].position;
                 spawnPointTaken[1] = true;
+
             }
         }else {
             Debug.Log("No Spawn points assigned! Instantiating at 0, 0, 0");
@@ -134,6 +136,23 @@ public class NetworkManager : MonoBehaviour {
 		GameObject photonCube = PhotonNetwork.Instantiate(headsetcubeprefab.name, headPos, Quaternion.identity, 0);
 		photonCube.transform.SetParent (headset.transform);
 
+		LayerMask playerPlaneLayerMask;
+		if (spawnPointTaken [1] == false) {
+
+			playerPlaneLayerMask = LayerMask.GetMask ("p1Area");
+
+
+		} else {
+
+			playerPlaneLayerMask = LayerMask.GetMask ("p2Area");
+
+
+		}
+
+		GameObject.Find ("Navmesh").GetComponent<ViveNavMesh> ().LayerMask = playerPlaneLayerMask;
+		Debug.Log ("Assigned layerMask of  " + playerPlaneLayerMask);
+
+
 		//Find the controllers and instantiate capsules ON NETOWRK -- set controllers as the parents of the capsules
        
         //Find left controller
@@ -149,6 +168,8 @@ public class NetworkManager : MonoBehaviour {
 		GameObject capsuleHandRight = PhotonNetwork.Instantiate(capsulehand.name, controllerRight.transform.position+ new Vector3(0f,0f,0f), transform.localRotation, 0);
 		//capsuleHandRight.transform.Rotate(-90f, 0f, 0f);
 		capsuleHandRight.transform.SetParent (controllerRight.transform);
+
+	
 
 	}
 }

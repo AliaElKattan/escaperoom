@@ -948,7 +948,7 @@ MonoBehaviour:
     type: 2}
   GroundAlpha: 1
   _LayerMask: 0
-  _IgnoreLayerMask: 1
+  _IgnoreLayerMask: 0
   _QueryTriggerInteraction: 0
   _SelectableMesh: {fileID: 0}
   _SelectableMeshBorder: []
