@@ -43,4 +43,5 @@ MonoBehaviour:
   - MakeTransparent
   - MakeVisible
   - buttonInput
+  - solvedTimerLock
   DisableAutoOpenWizard: 1
